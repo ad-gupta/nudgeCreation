@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+}
+.formInp{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: fit-content;
+    padding: 20px;
+}
+.tag{
+    border: 2px solid black;
+    width: 350px;
+    padding: 5px;
+}
+
+.img{
+    display: flex;
+    justify-content: space-between;
+}
+
+.timings{
+    display: flex;
+    justify-content: space-between;
+}
+
+.all{
+    border: 2px solid black;
+}
+
+.tag1{
+    border: 2px solid black;
+    border-right: none;
+    border-left: none;
+    width: 350px;
+    height: 100px;
+    padding: 5px;
+    margin-bottom: -18px;
+}

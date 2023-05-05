@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nudge creation page wireframe</title>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- For a POST endpoint with url-encoded data -->
+    <form class="formInp">
+      <p>
+        <label for="tag">I want to create a nudge for Events</label><br />
+        <input
+          class="tag"
+          type="text"
+          name="tag"
+          placeholder="Tag article or event"
+        />
+      </p>
+
+      <p>
+        <input
+          class="tag"
+          type="text"
+          name="title"
+          placeholder="Title... (60 char max)"
+        />
+      </p>
+
+      <p class="img">
+        <label for="coverNudgeimg">Choose Image</label>
+        <input type="file" name="coverNudgeimg" />
+      </p>
+
+      <div class="all">
+        <div class="timings">
+            <p>
+              <label for="ScheduledDate">Scheduled on:</label><br />
+              <input type="date" name="ScheduledDate" />
+            </p>
+    
+            <p>
+              <label for="ScheduledTime">Timings:</label><br />
+              <input type="time" name="ScheduledTime" />
+            </p>
+          </div>
+          <p>
+            <input class = "tag1" type="text" name="desc" placeholder="Description of the Nudge" />
+          </p>
+      </div>
+
+      <p>For viewing a Nudge at the end of an article</p>
+      
+      <div class="viewingAtend">
+        <p>
+          <label for="tag">choose icon</label><br />
+          <input type="file" name="iconImg" />
+        </p>
+
+        <p>
+          <input type="text" name="invitationLine"  placeholder="Enter one line invitation....."/>
+        </p>
+
+    </div>
+    <button type="submit"onclick="show_alert()">Publish Now</button>
+    </form>
+  </body>
+
+  <script>
+
+    const show_alert = () => {
+        alert("Form has been Submitted!")
+    }
+    const form = document.querySelector("form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      // Create payload of type multipart/form-data
+      const fd = new FormData(form);
+      console.log(fd);
+
+      fetch("http://localhost:8000/upload", {
+        method: "POST",
+        body: fd,
+      });
+    });
+  </script>
+</html>
